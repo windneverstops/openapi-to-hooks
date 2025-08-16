@@ -1,0 +1,37 @@
+{
+  "name": "openapi-to-hooks",
+  "version": "1.0.0",
+  "description": "Axios client generator with tanstack query wrapper for OpenAPI JSON specification",
+  "keywords": [
+    "tanstack query",
+    "openapi"
+  ],
+  "homepage": "https://github.com/windneverstops/openapi-to-hooks#readme",
+  "bugs": {
+    "url": "https://github.com/windneverstops/openapi-to-hooks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windneverstops/openapi-to-hooks.git"
+  },
+  "license": "AGPL-3.0",
+  "author": "@windneverstops",
+  "type": "module",
+  "bin": {
+    "openapi-ts-generator": "dist/cli.js"
+  },
+  "scripts": {
+    "test": "echo \\\"No tests yet\\\"",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.22.0",
+    "commander": "^14.0.0",
+    "ts-morph": "^26.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

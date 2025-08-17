@@ -2,12 +2,9 @@
 import { Command } from "commander";
 import fs from "fs";
 import path from "path";
-import type { service } from "./types.ts";
-import generate from "./generate.js";
-
-interface config {
-  services: service[];
-}
+import type { Config } from "./types.ts";
+import generateAxios from "./generateAxios.js";
+import generateTanstackQuery from "./generateTanstackQuery.js";
 
 const program = new Command();
 
@@ -28,13 +25,14 @@ program
       const configRaw = fs.readFileSync(configPath, "utf-8");
       const config = JSON.parse(configRaw);
 
-      const { services }: config = config;
+      const { services, tsMorphConfig }: Config = config;
 
       if (!services) {
         throw new Error('Config file must include "services"');
       }
       for (const s of services) {
-        generate(s.name, s.url, s.outDir);
+        generateAxios(s.name, s.url, s.outDir);
+        generateTanstackQuery(s.url, s.outDir, tsMorphConfig);
       }
 
       console.log("Successfully generated");
